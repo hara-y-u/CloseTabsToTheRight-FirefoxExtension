@@ -17,13 +17,14 @@
 	<script type="application/javascript">
 		var CTTTR = {};
 
-		CTTTR.getRightTabsOf = function _getRightTabsOf(aTab) {
+		CTTTR.getRightUnpinnedTabsOf = function _getRightUnpinnedTabsOf(aTab) {
 			var tabs = gBrowser.tabs,
 				ret = [];
 
 			for (var i = tabs.length - 1; i >= 0; --i) {
 				var t = tabs[i];
 				if (t === aTab) { break; }
+				if (t.pinned) { continue; }
 				ret.unshift(t);
 			}
 
@@ -31,7 +32,7 @@
 		}
 
 		CTTTR.removeRightTabsOf = function _removeRightTabsOf(aTab) {
-			var rtabs = CTTTR.getRightTabsOf(aTab);
+			var rtabs = CTTTR.getRightUnpinnedTabsOf(aTab);
 
 			for (var i = rtabs.length - 1; i >= 0; --i) {
 				gBrowser.removeTab(rtabs[i], {animate:true});
@@ -44,7 +45,8 @@
 				function(ev){
 					//Must be called after TabContextMenu.updateContextMenu(menupopup)
 					if (ev.target !== this) return;
-					var rtabs = CTTTR.getRightTabsOf(TabContextMenu.contextTab);
+
+					var rtabs = CTTTR.getRightUnpinnedTabsOf(TabContextMenu.contextTab);
 					document.getElementById("context_closeTabsToTheRight").disabled
 																				= !rtabs.length;
 				}, false);
