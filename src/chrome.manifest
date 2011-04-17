@@ -1,0 +1,4 @@
+content closetabstoright content/
+
+overlay chrome://browser/content/browser.xul  chrome://closetabstoright/content/browser.xul
+

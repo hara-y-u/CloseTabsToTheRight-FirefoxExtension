@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<overlay id="closeTabsToTheRightOverlay"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/javascript">
+		function removeRightTabs(aTab) {
+			var fRemove = true;
+			var tabs = gBrowser.tabs;
+
+			for (var i = tabs.length - 1; i >= 0; --i) {
+				var t = tabs[i];
+				if (t === aTab) { fRemove = false };
+				if (fRemove) {
+					gBrowser.removeTab(t, {animate:true});
+				}
+			}
+		}
+	</script>
+
+	<menupopup id="tabContextMenu">
+		<menuitem id="context_closeTabsToTheRight"
+			label="Close Tabs to the Right"
+			accesskey=""
+			oncommand="removeRightTabs(TabContextMenu.contextTab);"
+			insertafter="context_closeOtherTabs"
+			/>
+	</menupopup>
+
+</overlay>
+
