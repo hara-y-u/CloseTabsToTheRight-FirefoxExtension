@@ -1,31 +1,55 @@
 <?xml version="1.0"?>
+<!DOCTYPE window SYSTEM "chrome://closetabstotheright/locale/browser.dtd">
+
 <overlay id="closeTabsToTheRightOverlay"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script type="application/javascript">
-		function removeRightTabs(aTab) {
-			var fRemove = true;
-			var tabs = gBrowser.tabs;
-
-			for (var i = tabs.length - 1; i >= 0; --i) {
-				var t = tabs[i];
-				if (t === aTab) { fRemove = false };
-				if (fRemove) {
-					gBrowser.removeTab(t, {animate:true});
-				}
-			}
-		}
-	</script>
-
 	<menupopup id="tabContextMenu">
 		<menuitem id="context_closeTabsToTheRight"
-			label="Close Tabs to the Right"
-			accesskey=""
-			oncommand="removeRightTabs(TabContextMenu.contextTab);"
+			label="&closeTabsToTheRight.menu.closeTabsToTheRight.label;"
+			accesskey="&closeTabsToTheRight.menu.closeTabsToTheRight.key;"
+			oncommand="CTTTR.removeRightTabsOf(TabContextMenu.contextTab);"
 			insertafter="context_closeOtherTabs"
 			/>
 	</menupopup>
+
+	<script type="application/javascript">
+		var CTTTR = {};
+
+		CTTTR.getRightTabsOf = function _getRightTabsOf(aTab) {
+			var tabs = gBrowser.tabs,
+				ret = [];
+
+			for (var i = tabs.length - 1; i >= 0; --i) {
+				var t = tabs[i];
+				if (t === aTab) { break; }
+				ret.unshift(t);
+			}
+
+			return ret;
+		}
+
+		CTTTR.removeRightTabsOf = function _removeRightTabsOf(aTab) {
+			var rtabs = CTTTR.getRightTabsOf(aTab);
+
+			for (var i = rtabs.length - 1; i >= 0; --i) {
+				gBrowser.removeTab(rtabs[i], {animate:true});
+			}
+		}
+
+		//Set menuitem's state
+		window.addEventListener("load", function() {
+			document.getElementById("tabContextMenu").addEventListener("popupshowing",
+				function(ev){
+					//Must be called after TabContextMenu.updateContextMenu(menupopup)
+					if (ev.target !== this) return;
+					var rtabs = CTTTR.getRightTabsOf(TabContextMenu.contextTab);
+					document.getElementById("context_closeTabsToTheRight").disabled
+																				= !rtabs.length;
+				}, false);
+			}, false);
+	</script>
 
 </overlay>
 
