@@ -2,6 +2,6 @@ content closetabstotheright content/
 
 overlay chrome://browser/content/browser.xul  chrome://closetabstotheright/content/browser.xul
 
-locale closetabstotheright en-US locale/en-US/
+locale closetabstotheright en locale/en/
 locale closetabstotheright ja locale/ja/
 

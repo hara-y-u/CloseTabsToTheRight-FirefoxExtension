@@ -2,9 +2,9 @@
 <RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
 	xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<Description about="urn:mozilla:install-manifest">
-		<em:id>closetabstoright@4kwh.net</em:id>
+		<em:id>closetabstotheright@4kwh.net</em:id>
 		<em:type>2</em:type>
-		<em:name>Close Tabs To Right</em:name>
+		<em:name>Close Tabs to the Right</em:name>
 		<em:version>0.1.0</em:version>
 		<em:targetApplication>
 			<Description
@@ -13,7 +13,7 @@
 				em:maxVersion="4.0.*" />
 		</em:targetApplication>
 		<em:description>
-Add "Close Tabs To Right" Command to tabs' context menu.
+Add "Close Tabs to the Right" menu to tabs' context menu.
 		</em:description>
 		<em:creator>yukihr@4kwh.net</em:creator>
 		<em:homepageURL>http://4kwh.net/</em:homepageURL>
