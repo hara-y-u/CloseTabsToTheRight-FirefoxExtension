@@ -4,4 +4,5 @@ overlay chrome://browser/content/browser.xul  chrome://closetabstotheright/conte
 
 locale closetabstotheright en locale/en/
 locale closetabstotheright ja locale/ja/
+locale closetabstotheright it locale/it/
 
