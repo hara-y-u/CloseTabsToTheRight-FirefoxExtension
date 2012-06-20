@@ -2,7 +2,7 @@
 
 package_name='CloseTabsToTheRight.xpi'
 current_dir=`pwd`
-package_dir='../packages'
+package_dir='./packages'
 source_dir='src'
 exclude_path_rx='\(.*\.git.*\|.+\/tags\)'
 
