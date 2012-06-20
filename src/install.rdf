@@ -5,7 +5,7 @@
     <em:id>closetabstotheright@4kwh.net</em:id>
     <em:type>2</em:type>
     <em:name>Close Tabs to the Right</em:name>
-    <em:version>0.1.2</em:version>
+    <em:version>0.1.3</em:version>
     <em:targetApplication>
       <Description
           em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
