@@ -1,7 +1,7 @@
 var closeTabsToTheRight = {};
 
 closeTabsToTheRight.getRightUnpinnedTabsOf = function _getRightUnpinnedTabsOf(aTab) {
-	var tabs = gBrowser.tabs,
+	var tabs = gBrowser.visibleTabs,
 		ret = [];
 
 	for (var i = tabs.length - 1; i >= 0; --i) {
