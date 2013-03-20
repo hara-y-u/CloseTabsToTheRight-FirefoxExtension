@@ -15,12 +15,10 @@ closeTabsToTheRight.getRightUnpinnedTabsOf = function _getRightUnpinnedTabsOf(aT
 };
 
 closeTabsToTheRight.removeRightTabsOf = function _removeRightTabsOf(aTab) {
-	if (gBrowser.warnAboutClosingTabs(false)) {
-		var rtabs = closeTabsToTheRight.getRightUnpinnedTabsOf(aTab);
+	var rtabs = closeTabsToTheRight.getRightUnpinnedTabsOf(aTab);
 
-		for (var i = rtabs.length - 1; i >= 0; --i) {
-			gBrowser.removeTab(rtabs[i], {animate:true});
-		}
+	for (var i = rtabs.length - 1; i >= 0; --i) {
+		gBrowser.removeTab(rtabs[i], {animate:true});
 	}
 };
 
