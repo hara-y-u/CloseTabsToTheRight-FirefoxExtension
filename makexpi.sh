@@ -6,6 +6,9 @@ package_dir='./packages'
 source_dir='src'
 exclude_path_rx='\(.*\.git.*\|.+\/tags\)'
 
+# remove unnecessary files
+git clean -X -f
+
 if [ ! -d $package_dir ]; then
 	mkdir $package_dir
 fi
