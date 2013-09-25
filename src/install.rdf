@@ -5,12 +5,12 @@
     <em:id>closetabstotheright@4kwh.net</em:id>
     <em:type>2</em:type>
     <em:name>Close Tabs to the Right</em:name>
-    <em:version>0.1.7</em:version>
+    <em:version>0.1.8</em:version>
     <em:targetApplication>
       <Description
           em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
           em:minVersion="4.0"
-          em:maxVersion="22.0a1" />
+          em:maxVersion="27.0a1" />
     </em:targetApplication>
     <em:description>
       Add "Close Tabs to the Right" menu to tabs' context menu.
